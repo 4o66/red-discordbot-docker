@@ -1,0 +1,39 @@
+{
+  "0": {
+    "GLOBAL": {
+      "token": null,
+      "prefix": [
+        "!"
+      ],
+      "schema_version": 2,
+      "last_system_info": {
+        "python_version": [
+          3,
+          8
+        ],
+        "machine": "x86_64",
+        "system": "Linux"
+      }
+    },
+    "CUSTOM_GROUPS": {
+      "ModLog": {
+        "1354799444": {
+          "CASETYPES": 1,
+          "CASES": 2
+        }
+      },
+      "Core": {
+        "0": {
+          "CUSTOM_GROUPS": 2,
+          "SHARED_API_TOKENS": 2
+        }
+      },
+      "CogManager": {
+        "2938473984732": {}
+      },
+      "Bank": {
+        "384734293238749": {}
+      }
+    }
+  }
+}
