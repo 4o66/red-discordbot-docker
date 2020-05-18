@@ -46,22 +46,22 @@ RUN python -m pip install -U Red-DiscordBot[postgres]
 #When I was testing is was very useful to have nano inside the image
 #RUN apt update && apt -y install nano --no-install-recommends && rm -r /var/lib/apt/lists/*
 
-ENV VERSION="0.3.0"
+ENV VERSION="0.3.1"
 
 #Moving to github, so no longer using a tar.gz
 #ADD redbot_config.tar.gz /root/.local/share
 
 #Build folders found after a manual install
-RUN mkdir -p /root/.config/Red-DiscordBot/data/redbot/cogs/CogManager && mkdir -p /root/.config/Red-DiscordBot/data/redbot/cogs/Bank && mkdir -p /root/.config/Red-DiscordBot/data/redbot/cogs/Downloader/lib && mkdir -p /root/.config/Red-DiscordBot/data/redbot/cogs/ModLog && mkdir -p /root/.config/Red-DiscordBot/data/redbot/core/logs
+RUN mkdir -p /root/.config/Red-DiscordBot  &&  mkdir -p /root/.local/share/Red-DiscordBot/data/redbot/cogs/CogManager && mkdir -p /root/.local/share/Red-DiscordBot/data/redbot/cogs/Bank && mkdir -p /root/.local/share/Red-DiscordBot/data/redbot/cogs/Downloader/lib && mkdir -p /root/.local/share/Red-DiscordBot/data/redbot/cogs/ModLog && mkdir -p /root/.local/share/Red-DiscordBot/data/redbot/core/logs
 
 #Create the empty config files created by a manual install
-RUN echo {} > /root/.config/Red-DiscordBot/data/redbot/cogs/CogManager/settings.json && echo {} > /root/.config/Red-DiscordBot/data/redbot/cogs/Bank/settings.json && echo {} > /root/.config/Red-DiscordBot/data/redbot/cogs/ModLog/settings.json
+RUN echo {} > /root/.local/share/Red-DiscordBot/data/redbot/cogs/CogManager/settings.json && echo {} > /root/.local/share/Red-DiscordBot/data/redbot/cogs/Bank/settings.json && echo {} > /root/.local/share/Red-DiscordBot/data/redbot/cogs/ModLog/settings.json
 
 #copy the Instance config file
 COPY configs/config.json /root/.config/Red-DiscordBot/
 
 #Copy the default bot settings
-COPY configs/settings.json /root/.config/Red-DiscordBot/data/redbot/core/
+COPY configs/settings.json /root/.local/share/Red-DiscordBot/data/redbot/core/
 
 #Copy the entrypoint script
 COPY docker-entrypoint.sh /usr/local/bin/
